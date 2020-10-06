@@ -10,17 +10,16 @@ public class MoodAnalyser {
 
 	public MoodAnalyser() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public String analyseMood() {
+	public String analyseMood() throws MoodAnalysisException {
 		try {
 			if (message.contains("Sad"))
 				return "SAD";
 			else
 				return "HAPPY";
 		} catch (NullPointerException e) {
-			return "HAPPY";
+			throw new MoodAnalysisException("The mood provided is Empty.");
 		}
 	}
 
